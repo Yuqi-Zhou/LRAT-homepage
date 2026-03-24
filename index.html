@@ -6,144 +6,489 @@
     <title>LRAT | Learning to Retrieve from Agent Trajectories</title>
     <meta
       name="description"
-      content="Official project homepage for Learning to Retrieve from Agent Trajectories (LRAT)."
+      content="Official project page for Learning to Retrieve from Agent Trajectories (LRAT)."
     />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Source+Serif+4:wght@600;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=Source+Serif+4:wght@600;700&display=swap"
       rel="stylesheet"
     />
     <link rel="stylesheet" href="./styles.css" />
   </head>
   <body>
-    <main class="page">
+    <main class="project-page">
       <section class="hero">
+        <p class="eyebrow">Project Page</p>
         <h1>Learning to Retrieve from Agent Trajectories</h1>
-        <p class="subhead">
-          Official project page for LRAT, a trajectory-driven retrieval training framework for agentic search.
+        <p class="tagline">
+          Training retrieval models from agent interaction traces instead of
+          human search logs.
         </p>
-        <div class="author-line">
-          Author list will be updated after public paper release.
+
+        <div class="authors-card">
+          <div class="authors">
+            <span class="author pending">Author list to be updated</span>
+          </div>
+          <p class="affiliations">
+            Final author order and affiliations will be added after the public
+            paper release.
+          </p>
         </div>
+
         <div class="link-row">
           <span class="link-chip muted">Paper Coming Soon</span>
-          <span class="link-chip muted">Code Coming Soon</span>
-          <a class="link-chip" href="https://huggingface.co/Yuqi-Zhou/LRAT-Qwen3-Embedding-0.6B" target="_blank" rel="noreferrer">Qwen3 Checkpoint</a>
-          <a class="link-chip" href="https://huggingface.co/Yuqi-Zhou/LRAT-multilingual-e5-large" target="_blank" rel="noreferrer">E5 Checkpoint</a>
-          <a class="link-chip" href="https://huggingface.co/datasets/Yuqi-Zhou/LRAT-Train" target="_blank" rel="noreferrer">Training Dataset</a>
+          <span class="link-chip muted">Code Private for Now</span>
+          <a
+            class="link-chip"
+            href="https://huggingface.co/Yuqi-Zhou/LRAT-Qwen3-Embedding-0.6B"
+            target="_blank"
+            rel="noreferrer"
+            >LRAT-Qwen3-Embedding-0.6B</a
+          >
+          <a
+            class="link-chip"
+            href="https://huggingface.co/Yuqi-Zhou/LRAT-multilingual-e5-large"
+            target="_blank"
+            rel="noreferrer"
+            >LRAT-multilingual-e5-large</a
+          >
+          <a
+            class="link-chip"
+            href="https://huggingface.co/datasets/Yuqi-Zhou/LRAT-Train"
+            target="_blank"
+            rel="noreferrer"
+            >LRAT-Train Dataset</a
+          >
         </div>
       </section>
 
-      <section class="teaser">
-        <img src="./paper-assets/intro_5.png" alt="Shift from human-centric retrieval training to agent trajectory based retrieval training." />
-        <p class="caption">
-          LRAT studies the shift from retrieval models trained for human search to retrieval models trained directly from agent trajectories for agentic search.
-        </p>
-      </section>
-
-      <section class="abstract">
+      <section class="section narrative-section">
         <h2>Abstract</h2>
-        <p>
-          Information retrieval systems have traditionally been designed and trained for human
-          users, with learning-to-rank methods relying heavily on large-scale human interaction
-          logs such as clicks and dwell time. With the rapid emergence of large language model
-          powered search agents, however, retrieval is increasingly consumed by agents rather than
-          human beings, and is embedded as a core component within multi-turn reasoning and action
-          loops. In this setting, retrieval models trained under human-centric assumptions exhibit
-          a fundamental mismatch with the way agents issue queries and consume results.
-        </p>
-        <p>
-          LRAT introduces learning to retrieve from agent trajectories as a new training paradigm,
-          where supervision is derived from multi-step agent interactions. In our instantiation,
-          Tongyi-DeepResearch-30B is deployed on 10K InfoSeekQA queries with four retrievers,
-          yielding 26,482 agent trajectories and 91,713 training pairs. Experiments on both
-          in-domain and out-of-domain deep research benchmarks show consistent gains in evidence
-          recall, end-to-end task success, and execution efficiency across diverse agent
-          architectures and retriever backbones.
-        </p>
+        <div class="section-copy">
+          <p>
+            Information retrieval systems have traditionally been designed and
+            trained for human users, with learning-to-rank methods relying
+            heavily on large-scale human interaction logs such as clicks and
+            dwell time. With the rapid emergence of large language model powered
+            search agents, retrieval is increasingly consumed by agents rather
+            than human beings, and is embedded as a core component within
+            multi-turn reasoning and action loops. In this setting, retrieval
+            models trained under human-centric assumptions exhibit a fundamental
+            mismatch with the way agents issue queries and consume results.
+          </p>
+          <p>
+            LRAT introduces learning to retrieve from agent trajectories as a
+            new training paradigm, where supervision is derived from multi-step
+            agent interactions. In our instantiation, Tongyi-DeepResearch-30B
+            is deployed on 10K InfoSeekQA queries with four retrievers,
+            yielding 26,482 agent trajectories and 91,713 training pairs.
+            Experiments on both in-domain and out-of-domain deep research
+            benchmarks show consistent gains in evidence recall, end-to-end task
+            success, and execution efficiency across diverse agent architectures
+            and retriever backbones.
+          </p>
+        </div>
       </section>
 
-      <section class="content-section">
+      <section class="section teaser-section">
+        <figure class="figure-block figure-wide">
+          <img
+            src="./paper-assets/intro_5.png"
+            alt="Overview figure illustrating the shift from human-centric retrieval training to agent-trajectory supervision."
+          />
+          <figcaption>
+            LRAT addresses the mismatch between retrieval systems trained for
+            human search and the retrieval needs of multi-step search agents.
+          </figcaption>
+        </figure>
+      </section>
+
+      <section class="section table-section">
+        <div class="section-heading">
+          <h2>Main Results</h2>
+          <p>
+            LRAT consistently improves task success, evidence recall, and step
+            efficiency across both specialized search agents and generalist
+            agentic foundation models.
+          </p>
+        </div>
+
+        <div class="table-shell">
+          <table class="results-table">
+            <thead>
+              <tr>
+                <th rowspan="2">Agent Backbone</th>
+                <th rowspan="2">Retriever</th>
+                <th colspan="2">InfoSeek-Eval (ID)</th>
+                <th colspan="3">BrowseComp-Plus (OOD)</th>
+              </tr>
+              <tr>
+                <th>SR</th>
+                <th>Avg. Steps</th>
+                <th>SR</th>
+                <th>Recall</th>
+                <th>Avg. Steps</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="group-row">
+                <td colspan="7">I. Task-Optimized Search Agents</td>
+              </tr>
+
+              <tr>
+                <td rowspan="4" class="agent-cell">AgentCPM-Explore (4B)</td>
+                <td>Qwen3-Emb</td>
+                <td>40.3</td>
+                <td>38.0</td>
+                <td>13.5</td>
+                <td>23.2</td>
+                <td>40.7</td>
+              </tr>
+              <tr class="highlight-row">
+                <td>+ LRAT (Ours)</td>
+                <td>55.7</td>
+                <td>34.4</td>
+                <td>15.8</td>
+                <td>32.0</td>
+                <td>40.4</td>
+              </tr>
+              <tr>
+                <td>E5-Large</td>
+                <td>47.3</td>
+                <td>38.9</td>
+                <td>15.9</td>
+                <td>26.5</td>
+                <td>40.7</td>
+              </tr>
+              <tr class="highlight-row">
+                <td>+ LRAT (Ours)</td>
+                <td>49.7</td>
+                <td>35.5</td>
+                <td>15.9</td>
+                <td>32.1</td>
+                <td>40.1</td>
+              </tr>
+
+              <tr>
+                <td rowspan="4" class="agent-cell">WebExplore (8B)</td>
+                <td>Qwen3-Emb</td>
+                <td>52.0</td>
+                <td>24.1</td>
+                <td>21.0</td>
+                <td>47.7</td>
+                <td>40.7</td>
+              </tr>
+              <tr class="highlight-row">
+                <td>+ LRAT (Ours)</td>
+                <td>68.7</td>
+                <td>19.0</td>
+                <td>27.2</td>
+                <td>55.9</td>
+                <td>38.7</td>
+              </tr>
+              <tr>
+                <td>E5-Large</td>
+                <td>60.0</td>
+                <td>23.8</td>
+                <td>25.4</td>
+                <td>50.4</td>
+                <td>40.1</td>
+              </tr>
+              <tr class="highlight-row">
+                <td>+ LRAT (Ours)</td>
+                <td>63.3</td>
+                <td>20.2</td>
+                <td>29.0</td>
+                <td>56.1</td>
+                <td>39.1</td>
+              </tr>
+
+              <tr>
+                <td rowspan="4" class="agent-cell">Tongyi-DeepResearch (30B)</td>
+                <td>Qwen3-Emb</td>
+                <td>52.7</td>
+                <td>26.7</td>
+                <td>17.8</td>
+                <td>49.2</td>
+                <td>42.9</td>
+              </tr>
+              <tr class="highlight-row">
+                <td>+ LRAT (Ours)</td>
+                <td>68.0</td>
+                <td>20.7</td>
+                <td>23.7</td>
+                <td>60.7</td>
+                <td>41.0</td>
+              </tr>
+              <tr>
+                <td>E5-Large</td>
+                <td>56.7</td>
+                <td>25.1</td>
+                <td>20.7</td>
+                <td>54.8</td>
+                <td>42.4</td>
+              </tr>
+              <tr class="highlight-row">
+                <td>+ LRAT (Ours)</td>
+                <td>68.0</td>
+                <td>21.5</td>
+                <td>23.9</td>
+                <td>61.8</td>
+                <td>41.4</td>
+              </tr>
+
+              <tr class="group-row">
+                <td colspan="7">II. Generalist Agentic Foundation Models</td>
+              </tr>
+
+              <tr>
+                <td rowspan="4" class="agent-cell">GPT-OSS (120B)</td>
+                <td>Qwen3-Emb</td>
+                <td>40.0</td>
+                <td>34.9</td>
+                <td>9.0</td>
+                <td>43.7</td>
+                <td>45.4</td>
+              </tr>
+              <tr class="highlight-row">
+                <td>+ LRAT (Ours)</td>
+                <td>47.0</td>
+                <td>30.5</td>
+                <td>12.1</td>
+                <td>56.4</td>
+                <td>45.2</td>
+              </tr>
+              <tr>
+                <td>E5-Large</td>
+                <td>41.7</td>
+                <td>33.9</td>
+                <td>10.8</td>
+                <td>50.1</td>
+                <td>44.8</td>
+              </tr>
+              <tr class="highlight-row">
+                <td>+ LRAT (Ours)</td>
+                <td>50.7</td>
+                <td>29.7</td>
+                <td>13.1</td>
+                <td>56.0</td>
+                <td>44.6</td>
+              </tr>
+
+              <tr>
+                <td rowspan="4" class="agent-cell">MiniMax-M2.1 (229B)</td>
+                <td>Qwen3-Emb</td>
+                <td>58.7</td>
+                <td>21.4</td>
+                <td>38.2</td>
+                <td>57.2</td>
+                <td>30.8</td>
+              </tr>
+              <tr class="highlight-row">
+                <td>+ LRAT (Ours)</td>
+                <td>78.3</td>
+                <td>14.7</td>
+                <td>48.3</td>
+                <td>69.2</td>
+                <td>28.3</td>
+              </tr>
+              <tr>
+                <td>E5-Large</td>
+                <td>64.0</td>
+                <td>18.9</td>
+                <td>46.4</td>
+                <td>64.9</td>
+                <td>29.1</td>
+              </tr>
+              <tr class="highlight-row">
+                <td>+ LRAT (Ours)</td>
+                <td>75.0</td>
+                <td>14.8</td>
+                <td>48.7</td>
+                <td>69.7</td>
+                <td>28.9</td>
+              </tr>
+
+              <tr>
+                <td rowspan="4" class="agent-cell">GLM-4.7 (358B)</td>
+                <td>Qwen3-Emb</td>
+                <td>67.7</td>
+                <td>27.5</td>
+                <td>43.9</td>
+                <td>66.6</td>
+                <td>45.5</td>
+              </tr>
+              <tr class="highlight-row">
+                <td>+ LRAT (Ours)</td>
+                <td>82.0</td>
+                <td>18.5</td>
+                <td>54.6</td>
+                <td>77.8</td>
+                <td>44.6</td>
+              </tr>
+              <tr>
+                <td>E5-Large</td>
+                <td>73.7</td>
+                <td>24.2</td>
+                <td>46.4</td>
+                <td>68.7</td>
+                <td>44.6</td>
+              </tr>
+              <tr class="highlight-row">
+                <td>+ LRAT (Ours)</td>
+                <td>81.7</td>
+                <td>19.5</td>
+                <td>50.6</td>
+                <td>76.3</td>
+                <td>44.8</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section class="section visual-section">
         <h2>Method Overview</h2>
-        <img class="paper-figure" src="./paper-assets/method_7.png" alt="LRAT training framework figure from the paper." />
-        <p class="caption">
-          LRAT mines supervision from browse actions and post-browse reasoning, then trains a dense retriever with reasoning-aware weighted contrastive learning.
-        </p>
-        <div class="text-grid">
-          <div>
-            <h3>1. Naive relevance mining</h3>
+        <figure class="figure-block">
+          <img
+            src="./paper-assets/method_7.png"
+            alt="Method figure for LRAT training from agent trajectories."
+          />
+          <figcaption>
+            LRAT mines supervision from search-browse transitions and
+            post-browse reasoning traces, then trains a dense retriever with
+            reasoning-aware weighted contrastive learning.
+          </figcaption>
+        </figure>
+
+        <div class="feature-grid">
+          <article class="feature-card">
+            <h3>Naive relevance mining</h3>
             <p>
-              Browsed documents after search are treated as positive candidates, while unbrowsed retrieved documents provide negatives.
+              Browsed documents serve as coarse positives, while unbrowsed
+              retrieved documents provide clean trajectory-aware negatives.
             </p>
+          </article>
+          <article class="feature-card">
+            <h3>Reasoning-aware filtering</h3>
+            <p>
+              Post-browse reasoning traces are used to remove browsed-but-not
+              useful documents from the positive set.
+            </p>
+          </article>
+          <article class="feature-card">
+            <h3>Relevance intensity estimation</h3>
+            <p>
+              Reasoning length is converted into a soft utility weight that
+              captures how strongly a document contributes to progress.
+            </p>
+          </article>
+          <article class="feature-card">
+            <h3>Weighted retriever training</h3>
+            <p>
+              Final optimization uses weighted contrastive learning to align the
+              retriever with agent-style search behavior.
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section split-section">
+        <div class="split-grid">
+          <div>
+            <h2>Trajectory Analysis</h2>
+            <figure class="figure-block compact-figure">
+              <img
+                src="./paper-assets/data_analysis_3.png"
+                alt="Trajectory analysis figure from the LRAT paper."
+              />
+              <figcaption>
+                Browsing is necessary for success, unbrowsed documents provide
+                reliable negatives, and post-browse reasoning length tracks
+                document utility.
+              </figcaption>
+            </figure>
           </div>
+
           <div>
-            <h3>2. Reasoning-aware filtering</h3>
-            <p>
-              Post-browse reasoning traces are judged to remove browsed-but-unhelpful positives.
-            </p>
-          </div>
-          <div>
-            <h3>3. Relevance intensity estimation</h3>
-            <p>
-              Reasoning length is converted into a soft utility weight that captures how strongly a document contributes to task progress.
-            </p>
-          </div>
-          <div>
-            <h3>4. Weighted retriever training</h3>
-            <p>
-              The final retriever is optimized with weighted InfoNCE-style contrastive learning.
-            </p>
+            <h2>Scalability and Robustness</h2>
+            <figure class="figure-block compact-figure">
+              <img
+                src="./paper-assets/scale.png"
+                alt="Scaling and top-k robustness figure from the LRAT paper."
+              />
+              <figcaption>
+                LRAT benefits from larger trajectory pools and remains stable
+                under different retrieval budgets.
+              </figcaption>
+            </figure>
           </div>
         </div>
       </section>
 
-      <section class="content-section">
-        <h2>Trajectory Analysis</h2>
-        <img class="paper-figure" src="./paper-assets/data_analysis_3.png" alt="Trajectory analysis figure from the paper." />
-        <p class="caption">
-          Agent trajectories reveal that browsing is necessary for successful retrieval, unbrowsed documents are reliable negatives, and post-browse reasoning length reflects document utility.
-        </p>
-      </section>
-
-      <section class="content-section">
+      <section class="section">
         <h2>Released Resources</h2>
-        <div class="resource-list">
-          <div class="resource-item">
+        <div class="resource-grid">
+          <article class="resource-card">
             <h3>LRAT-Qwen3-Embedding-0.6B</h3>
-            <p>Trajectory-trained dense retriever based on Qwen3-Embedding-0.6B.</p>
-            <a href="https://huggingface.co/Yuqi-Zhou/LRAT-Qwen3-Embedding-0.6B" target="_blank" rel="noreferrer">Hugging Face Model</a>
-          </div>
-          <div class="resource-item">
+            <p>
+              Trajectory-trained dense retriever based on
+              Qwen3-Embedding-0.6B.
+            </p>
+            <a
+              href="https://huggingface.co/Yuqi-Zhou/LRAT-Qwen3-Embedding-0.6B"
+              target="_blank"
+              rel="noreferrer"
+              >Model Card</a
+            >
+          </article>
+
+          <article class="resource-card">
             <h3>LRAT-multilingual-e5-large</h3>
-            <p>Trajectory-trained dense retriever based on multilingual-e5-large-instruct.</p>
-            <a href="https://huggingface.co/Yuqi-Zhou/LRAT-multilingual-e5-large" target="_blank" rel="noreferrer">Hugging Face Model</a>
-          </div>
-          <div class="resource-item">
+            <p>
+              Trajectory-trained dense retriever based on
+              multilingual-e5-large-instruct.
+            </p>
+            <a
+              href="https://huggingface.co/Yuqi-Zhou/LRAT-multilingual-e5-large"
+              target="_blank"
+              rel="noreferrer"
+              >Model Card</a
+            >
+          </article>
+
+          <article class="resource-card">
             <h3>LRAT-Train</h3>
-            <p>Trajectory-derived retrieval training data built from deep research agent interactions.</p>
-            <a href="https://huggingface.co/datasets/Yuqi-Zhou/LRAT-Train" target="_blank" rel="noreferrer">Hugging Face Dataset</a>
-          </div>
+            <p>
+              Training dataset built from deep research agent trajectories for
+              retriever supervision.
+            </p>
+            <a
+              href="https://huggingface.co/datasets/Yuqi-Zhou/LRAT-Train"
+              target="_blank"
+              rel="noreferrer"
+              >Dataset Card</a
+            >
+          </article>
         </div>
       </section>
 
-      <section class="content-section">
-        <h2>Scalability and Robustness</h2>
-        <img class="paper-figure" src="./paper-assets/scale.png" alt="Scalability and top-k robustness figure from the paper." />
-        <p class="caption">
-          LRAT continues to benefit from larger trajectory collections and remains robust across different top-k retrieval budgets.
-        </p>
-      </section>
-
-      <section class="content-section">
+      <section class="section">
         <h2>Data Flywheel</h2>
-        <img class="paper-figure narrow-figure" src="./paper-assets/data_flywheel.png" alt="Data flywheel simulation figure from the paper." />
-        <p class="caption">
-          LRAT supports iterative retriever improvement through repeated agent-retriever interaction, indicating the potential for a sustainable data flywheel.
-        </p>
+        <figure class="figure-block figure-medium">
+          <img
+            src="./paper-assets/data_flywheel.png"
+            alt="Data flywheel simulation figure from the LRAT paper."
+          />
+          <figcaption>
+            Iterative agent-retriever interaction can form a sustainable data
+            flywheel for continual retriever improvement.
+          </figcaption>
+        </figure>
       </section>
 
-      <section class="content-section">
+      <section class="section citation-section">
         <h2>Citation</h2>
         <pre class="bibtex"><code>@misc{lrat2026,
   title        = {Learning to Retrieve from Agent Trajectories},
