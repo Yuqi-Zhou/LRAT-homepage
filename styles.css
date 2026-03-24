@@ -31,14 +31,14 @@ img {
 }
 
 .project-page {
-  width: min(1080px, calc(100vw - 28px));
+  width: min(960px, calc(100vw - 32px));
   margin: 0 auto;
-  padding: 28px 0 72px;
+  padding: 22px 0 64px;
 }
 
 .hero {
   text-align: center;
-  padding: 24px 0 10px;
+  padding: 24px 0 8px;
 }
 
 .eyebrow {
@@ -60,14 +60,14 @@ img {
 }
 
 .tagline {
-  width: min(820px, 100%);
+  width: min(760px, 100%);
   margin: 14px auto 0;
   color: var(--text-soft);
   font-size: 1rem;
 }
 
 .authors-card {
-  width: min(840px, 100%);
+  width: min(780px, 100%);
   margin: 22px auto 0;
   padding: 0;
 }
@@ -160,10 +160,12 @@ img {
   font-size: 1.95rem;
   line-height: 1.15;
   letter-spacing: 0.02em;
+  text-align: center;
 }
 
 .section-copy {
-  width: min(900px, 100%);
+  width: min(768px, 100%);
+  margin: 0 auto;
 }
 
 .section-copy p,
@@ -185,27 +187,31 @@ img {
 
 .section-heading {
   margin-bottom: 16px;
+  width: min(768px, 100%);
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
 }
 
 .section-heading p {
-  max-width: 880px;
+  max-width: 768px;
 }
 
 .figure-block {
-  width: min(860px, 100%);
+  width: min(768px, 100%);
   margin: 0 auto;
 }
 
 .figure-wide {
-  width: min(720px, 100%);
+  width: min(640px, 100%);
 }
 
 .figure-medium {
-  width: min(700px, 100%);
+  width: min(640px, 100%);
 }
 
 .compact-figure {
-  width: min(460px, 100%);
+  width: min(360px, 100%);
   margin: 0;
 }
 
@@ -225,6 +231,8 @@ img {
 }
 
 .table-shell {
+  width: min(960px, 100%);
+  margin: 0 auto;
   overflow-x: auto;
   border: 1px solid var(--line);
   border-radius: 10px;
@@ -293,15 +301,22 @@ img {
 .feature-grid {
   grid-template-columns: repeat(2, minmax(0, 1fr));
   margin-top: 22px;
+  width: min(768px, 100%);
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .resource-grid {
   grid-template-columns: repeat(3, minmax(0, 1fr));
+  width: min(960px, 100%);
+  margin: 0 auto;
 }
 
 .split-grid {
   grid-template-columns: repeat(2, minmax(0, 1fr));
   align-items: start;
+  width: min(768px, 100%);
+  margin: 0 auto;
 }
 
 .feature-card,
@@ -348,7 +363,7 @@ img {
   }
 
   .compact-figure {
-    width: min(640px, 100%);
+    width: min(520px, 100%);
     margin: 0 auto;
   }
 }
@@ -376,5 +391,14 @@ img {
 
   .results-table {
     min-width: 860px;
+  }
+
+  .section-copy,
+  .section-heading,
+  .feature-grid,
+  .resource-grid,
+  .split-grid,
+  .table-shell {
+    width: 100%;
   }
 }
