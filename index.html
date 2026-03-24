@@ -12,6 +12,10 @@
       href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
       rel="stylesheet"
     />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+    />
     <link rel="stylesheet" href="./styles.css" />
   </head>
   <body>
@@ -47,36 +51,41 @@
           </p>
         </div>
 
-        <div class="link-row">
-          <span class="link-chip muted">Paper Coming Soon</span>
-          <span class="link-chip muted">Code Private for Now</span>
+        <div class="link-row compact-links">
+          <span class="action-button muted">
+            <span class="icon"><i class="fa-regular fa-file-lines"></i></span>
+            <span>Paper</span>
+          </span>
+          <span class="action-button muted">
+            <span class="icon"><i class="fa-brands fa-github"></i></span>
+            <span>Code</span>
+          </span>
           <a
-            class="link-chip"
-            href="https://huggingface.co/Yuqi-Zhou/LRAT-Qwen3-Embedding-0.6B"
+            class="action-button"
+            href="https://huggingface.co/collections/Yuqi-Zhou/lrat-learning-to-retrieve-from-agent-trajectories"
             target="_blank"
             rel="noreferrer"
-            >LRAT-Qwen3-Embedding-0.6B</a
           >
+            <span class="icon">HF</span>
+            <span>Collection</span>
+          </a>
           <a
-            class="link-chip"
-            href="https://huggingface.co/Yuqi-Zhou/LRAT-multilingual-e5-large"
-            target="_blank"
-            rel="noreferrer"
-            >LRAT-multilingual-e5-large</a
-          >
-          <a
-            class="link-chip"
+            class="action-button"
             href="https://huggingface.co/datasets/Yuqi-Zhou/LRAT-Train"
             target="_blank"
             rel="noreferrer"
-            >LRAT-Train Dataset</a
           >
+            <span class="icon"><i class="fa-solid fa-database"></i></span>
+            <span>Dataset</span>
+          </a>
         </div>
       </section>
 
       <section class="section narrative-section">
-        <h2>Abstract</h2>
-        <div class="section-copy">
+        <div class="section-title-wrap">
+          <h2>Abstract</h2>
+        </div>
+        <div class="section-copy abstract-copy">
           <p>
             Information retrieval systems have traditionally been designed and
             trained for human users, with learning-to-rank methods relying
@@ -270,6 +279,95 @@
                 <td>56.4</td>
                 <td>45.2</td>
               </tr>
+              <tr>
+                <td>E5-Large</td>
+                <td>41.7</td>
+                <td>33.9</td>
+                <td>10.8</td>
+                <td>50.1</td>
+                <td>44.8</td>
+              </tr>
+              <tr class="highlight-row">
+                <td>+ LRAT (Ours)</td>
+                <td>50.7</td>
+                <td>29.7</td>
+                <td>13.1</td>
+                <td>56.0</td>
+                <td>44.6</td>
+              </tr>
+
+              <tr>
+                <td rowspan="4" class="agent-cell">MiniMax-M2.1 (229B)</td>
+                <td>Qwen3-Emb</td>
+                <td>58.7</td>
+                <td>21.4</td>
+                <td>38.2</td>
+                <td>57.2</td>
+                <td>30.8</td>
+              </tr>
+              <tr class="highlight-row">
+                <td>+ LRAT (Ours)</td>
+                <td>78.3</td>
+                <td>14.7</td>
+                <td>48.3</td>
+                <td>69.2</td>
+                <td>28.3</td>
+              </tr>
+              <tr>
+                <td>E5-Large</td>
+                <td>64.0</td>
+                <td>18.9</td>
+                <td>46.4</td>
+                <td>64.9</td>
+                <td>29.1</td>
+              </tr>
+              <tr class="highlight-row">
+                <td>+ LRAT (Ours)</td>
+                <td>75.0</td>
+                <td>14.8</td>
+                <td>48.7</td>
+                <td>69.7</td>
+                <td>28.9</td>
+              </tr>
+
+              <tr>
+                <td rowspan="4" class="agent-cell">GLM-4.7 (358B)</td>
+                <td>Qwen3-Emb</td>
+                <td>67.7</td>
+                <td>27.5</td>
+                <td>43.9</td>
+                <td>66.6</td>
+                <td>45.5</td>
+              </tr>
+              <tr class="highlight-row">
+                <td>+ LRAT (Ours)</td>
+                <td>82.0</td>
+                <td>18.5</td>
+                <td>54.6</td>
+                <td>77.8</td>
+                <td>44.6</td>
+              </tr>
+              <tr>
+                <td>E5-Large</td>
+                <td>73.7</td>
+                <td>24.2</td>
+                <td>46.4</td>
+                <td>68.7</td>
+                <td>44.6</td>
+              </tr>
+              <tr class="highlight-row">
+                <td>+ LRAT (Ours)</td>
+                <td>81.7</td>
+                <td>19.5</td>
+                <td>50.6</td>
+                <td>76.3</td>
+                <td>44.8</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+      
               <tr>
                 <td>E5-Large</td>
                 <td>41.7</td>
