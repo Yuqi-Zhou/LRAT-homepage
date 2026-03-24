@@ -52,10 +52,11 @@ img {
 
 .hero h1 {
   margin: 0;
-  font-family: "Source Serif 4", serif;
+  font-family: "IBM Plex Sans", sans-serif;
   font-size: clamp(2.5rem, 5vw, 3.75rem);
-  line-height: 1.06;
+  line-height: 1.04;
   font-weight: 700;
+  letter-spacing: -0.035em;
 }
 
 .tagline {
@@ -72,18 +73,41 @@ img {
 }
 
 .authors {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 6px 14px;
   font-size: 1rem;
   font-weight: 600;
 }
 
-.author.pending {
-  color: var(--text-soft);
+.author {
+  color: var(--text-main);
 }
 
 .affiliations {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
   margin: 8px 0 0;
   color: var(--text-muted);
   font-size: 0.94rem;
+}
+
+.author-notes,
+.contact-line {
+  margin: 8px 0 0;
+  color: var(--text-muted);
+  font-size: 0.93rem;
+}
+
+.contact-line a {
+  color: var(--accent);
+  text-decoration: none;
+}
+
+.contact-line a:hover {
+  text-decoration: underline;
 }
 
 .link-row {
@@ -130,9 +154,10 @@ img {
 
 .section h2 {
   margin: 0 0 14px;
-  font-family: "Source Serif 4", serif;
-  font-size: 2rem;
+  font-family: "IBM Plex Sans", sans-serif;
+  font-size: 1.95rem;
   line-height: 1.15;
+  letter-spacing: -0.02em;
 }
 
 .section-copy {
@@ -151,6 +176,11 @@ img {
   margin-top: 14px;
 }
 
+.narrative-section .section-copy p {
+  text-align: justify;
+  text-justify: inter-word;
+}
+
 .section-heading {
   margin-bottom: 16px;
 }
@@ -165,7 +195,7 @@ img {
 }
 
 .figure-wide {
-  width: min(900px, 100%);
+  width: min(720px, 100%);
 }
 
 .figure-medium {
@@ -225,6 +255,11 @@ img {
 .results-table th:nth-child(2),
 .results-table td:nth-child(2) {
   text-align: left;
+}
+
+.results-table thead th:nth-child(n + 3),
+.results-table tbody td:nth-child(n + 3) {
+  text-align: center;
 }
 
 .group-row td {
