@@ -21,7 +21,7 @@ body {
   margin: 0;
   background: var(--page-bg);
   color: var(--text-main);
-  font-family: "IBM Plex Sans", sans-serif;
+  font-family: "Noto Sans", sans-serif;
   line-height: 1.7;
 }
 
@@ -52,18 +52,18 @@ img {
 
 .hero h1 {
   margin: 0;
-  font-family: "IBM Plex Sans", sans-serif;
+  font-family: "Google Sans", sans-serif;
   font-size: clamp(2.5rem, 5vw, 3.75rem);
   line-height: 1.04;
   font-weight: 700;
-  letter-spacing: -0.035em;
+  letter-spacing: 0.02em;
 }
 
 .tagline {
   width: min(820px, 100%);
   margin: 14px auto 0;
   color: var(--text-soft);
-  font-size: 1.1rem;
+  font-size: 1rem;
 }
 
 .authors-card {
@@ -77,8 +77,10 @@ img {
   flex-wrap: wrap;
   justify-content: center;
   gap: 6px 14px;
+  font-family: "Google Sans", sans-serif;
   font-size: 1rem;
   font-weight: 600;
+  line-height: 1.4;
 }
 
 .author {
@@ -154,10 +156,10 @@ img {
 
 .section h2 {
   margin: 0 0 14px;
-  font-family: "IBM Plex Sans", sans-serif;
+  font-family: "Google Sans", sans-serif;
   font-size: 1.95rem;
   line-height: 1.15;
-  letter-spacing: -0.02em;
+  letter-spacing: 0.02em;
 }
 
 .section-copy {
