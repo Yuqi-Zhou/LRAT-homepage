@@ -10,6 +10,7 @@ This repository is intended to be published through GitHub Pages.
 
 ## Current public resources
 
+- Accepted paper: `SIGIR 2026`
 - Paper PDF: `https://yuqi-zhou.github.io/LRAT-homepage/paper-assets/LRAT.pdf`
 - Code repository: `https://github.com/Yuqi-Zhou/LRAT`
 - Qwen3 checkpoint: `https://huggingface.co/Yuqi-Zhou/LRAT-Qwen3-Embedding-0.6B`

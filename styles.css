@@ -112,6 +112,13 @@ img {
   text-decoration: underline;
 }
 
+.acceptance-note {
+  margin: 12px 0 0;
+  color: var(--accent);
+  font-family: "Google Sans", sans-serif;
+  font-size: 0.98rem;
+}
+
 .link-row {
   display: flex;
   flex-wrap: wrap;
